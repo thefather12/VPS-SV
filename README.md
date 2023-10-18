@@ -1,6 +1,6 @@
 # VPS-SV By THEFATHER12 ( MOD ENGLISH )
 ```
-* VPS-SV (Final Version OF VPS-SV 8.5x)
+* VPS-SV (Final Version OF VPS-SV FIRE)
 ```
 ![logo](https://raw.githubusercontent.com/thefather12/VPS-SV_English_Official/main/VPS-SV.png)
 
