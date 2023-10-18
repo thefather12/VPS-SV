@@ -242,10 +242,10 @@ install_official() {
   clear && clear
   mkdir /etc/VPS-AGN >/dev/null 2>&1
   cd /etc
-  wget https://raw.githubusercontent.com/thefather12/VPS-SV/main/SCRIPT-v8.5x/VPS-AGN >/dev/null 2>&1
-  tar -xf VPS-AGN >/dev/null 2>&1
-  chmod +x VPS-AGN >/dev/null 2>&1
-  rm -rf VPS-AGN
+  wget https://raw.githubusercontent.com/thefather12/VPS-SV/main/SCRIPT-v8.5x/VPS-AGN.tar.xz >/dev/null 2>&1
+  tar -xf VPS-AGN.tar.xz >/dev/null 2>&1
+  chmod +x VPS-AGN.tar.xz >/dev/null 2>&1
+  rm -rf VPS-AGN.tar.xz
   cd
   chmod -R 755 /etc/VPS-AGN
   rm -rf /etc/VPS-AGN/MEUIPvps
