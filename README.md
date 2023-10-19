@@ -2,10 +2,10 @@
 ```
 * VPS-SV (Version FIRE esta Version se encuentra en desarrollo)
 ```
-![logo](https://raw.githubusercontent.com/thefather12/VPS-SV/main/VPS-SV1.png)
+![logo](https://raw.githubusercontent.com/thefather12/VPS-SV/main/VPS-SV1.jpg)
 
 
-![logo](https://raw.githubusercontent.com/thefather12/VPS-SV/main/VPS-SV2.png)
+![logo](https://raw.githubusercontent.com/thefather12/VPS-SV/main/VPS-SV2.jpg)
 
 
 ```
