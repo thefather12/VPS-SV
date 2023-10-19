@@ -51,7 +51,7 @@ BOT MANAGER:
 # Instalación
 ```
 
-apt-get update -y; apt-get upgrade -y; wget https://github.com/thefather12/VPS-SV/raw/main/installer/setup.sh; chmod 777 setup.sh; ./setup.sh --start
+apt-get update -y; apt-get upgrade -y; wget https://github.com/thefather12/VPS-SV/raw/main/installer/Install-without-key.sh; chmod 777 Install-without-key.sh; ./Install-without-key.sh --start
 ```
 
  
