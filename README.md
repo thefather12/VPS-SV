@@ -2,7 +2,11 @@
 ```
 * VPS-SV (Version FIRE esta Version se encuentra en desarrollo)
 ```
-![logo](https://raw.githubusercontent.com/thefather12/VPS-SV_English_Official/main/VPS-SV.png)
+![logo](https://raw.githubusercontent.com/thefather12/VPS-SV/main/VPS-SV1.png)
+
+
+![logo](https://raw.githubusercontent.com/thefather12/VPS-SV/main/VPS-SV2.png)
+
 
 ```
 # SCRIPT VPS•SV ® VPS Script Manager
