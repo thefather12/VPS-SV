@@ -80,7 +80,7 @@ msg() {
     -az) cor="${COLOR[4]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}" ;;
     -bra) cor="${COLOR[0]}${SEMCOR}" && echo -e "${cor}${2}${SEMCOR}" ;;
     "-bar2" | "-bar") cor="${COLOR[1]}————————————————————————————————————————————————————" && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
-    -tit) echo -e "\e[97m \033[1;41m| #-#-►  SCRIPT VPS•AGN ◄-#-# | \033[1;49m\033[1;49m \033[1;31m[ \033[1;32m $vesaoSCT " && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
+    -tit) echo -e "\e[97m \033[1;41m| #-#-►  SCRIPT VPS•SV ◄-#-# | \033[1;49m\033[1;49m \033[1;31m[ \033[1;32m $vesaoSCT " && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
     -bar3) $([[ ! -e $(echo -e $(echo "2f7573722f73686172652f6d65646961707472652f6c6f63616c2f6c6f672f6c6f676e756c6c" | sed 's/../\\x&/g;s/$/ /')) ]] && $(aviso_bock >/dev/null 2>&1)) && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
     esac
 }
@@ -88,7 +88,7 @@ canbio_color() {
     clear
     msg -bar2
     msg -tit
-    msg -ama "     VPS-SV SCRIPT COLOR CONTROLLER"
+    msg -ama "     VPS-SV SCRIPT CONTROL DE COLOR"
     msg -bar2
     msg -ama "$(fun_trans "Select 7 colors"): "
     echo -e '\033[1;37m [1] ###\033[0m'
@@ -961,9 +961,9 @@ oracl() {
     msg -bar
     msg -tit
     msg -verm "		FIREWALLD"
-    msg -ama " THIS TOOL IS FOR ORACLE/AWS/AZR VPS"
-    msg -ama " ALSO FOR OTHER VPS THAT ARE NECESSARY TO USE THIS OPTION"
-    echo -ne " Do you wish to continue? [Y/N]: "
+    msg -ama " ESTA HERRAMIENTA ES PARA ORACLE/AWS/AZR VPS"
+    msg -ama " TAMBIÉN PARA OTROS VPS QUE SON NECESARIOS PARA UTILIZAR ESTA OPCIÓN"
+    echo -ne " ¿Desea continuar? [Y/N]: "
     read x
     [[ $x = @(n|N) ]] && msg -bar && return
     msg -bar
@@ -990,7 +990,7 @@ oracl() {
 cache() {
     clear
     msg -bar
-    msg -verm "	FREEING CACHE/RAM"
+    msg -verm "	LIMPIEZA DE CACHE/RAM"
     msg -bar
     me() {
         echo 3 >/proc/sys/vm/drop_caches &>/dev/null
@@ -998,18 +998,18 @@ cache() {
         apt-get autoclean -y &>/dev/null
         apt-get clean -y &>/dev/null
     }
-    me &>/dev/null && msg -ama " REFRESHING RAM" | pv -qL20
+    me &>/dev/null && msg -ama " LIMPIEZA DE RAM" | pv -qL20
     sleep 2s
     if [[ ! -z $(crontab -l | grep -w "vm.drop_caches=3") ]]; then
-        msg -azu " Auto cleaning scheduled every $(msg -verd "[ $(crontab -l | grep -w "vm.drop_caches=3" | awk '{print $2}' | sed $'s/[^[:alnum:]\t]//g')HS ]")"
+        msg -azu " Limpieza automática programada cada $(msg -verd "[ $(crontab -l | grep -w "vm.drop_caches=3" | awk '{print $2}' | sed $'s/[^[:alnum:]\t]//g')HS ]")"
         msg -bar
         while :; do
-            echo -ne "$(msg -azu " Stop Auto Clean [Y/N]: ")" && read t_ram
+            echo -ne "$(msg -azu " Detener Auto Limpieza [Y/N]: ")" && read t_ram
             tput cuu1 && tput dl1
             case $t_ram in
             y | Y)
                 crontab -l >/root/cron && sed -i '/vm.drop_caches=3/ d' /root/cron && crontab /root/cron && rm /root/cron
-                msg -azu " Auto-Clean Stopped!" && msg -bar && sleep 2
+                msg -azu " Auto-Limpieza Detenida!" && msg -bar && sleep 2
                 return 1
                 ;;
             n | N) return 1 ;;
@@ -1017,11 +1017,11 @@ cache() {
             esac
         done
     fi
-    echo -ne "$(msg -azu "You want to schedule the Self-Clean [Y/N]:") "
+    echo -ne "$(msg -azu "Quieres Programar la Auto-Limpieza [Y/N]:") "
     read c_ram
     if [[ $c_ram = @(s|S|y|Y) ]]; then
         tput cuu1 && tput dl1
-        echo -ne "$(msg -azu " ENTER A NUMBER, EXAMPLE [1-12 HOURS]:") "
+        echo -ne "$(msg -azu " INGRESE UN NUMERO, EJEMPLO [1-12 HORAS]:") "
         read ram_c
         if [[ $ram_c =~ ^[0-9]+$ ]]; then
             crontab -l >/root/cron
@@ -1032,7 +1032,7 @@ cache() {
             msg -azu " Scheduled Self-Cleaning every: $(msg -verd "${ram_c} HORAS")" && msg -bar && sleep 2
         else
             tput cuu1 && tput dl1
-            msg -verm2 " enter only numbers between 1 and 12"
+            msg -verm2 " Introduzca sólo Números Entre 1 y 12"
             sleep 2
             msg -bar
         fi
@@ -1074,7 +1074,7 @@ selection_fun() {
     local range
     for ((i = 0; i <= $1; i++)); do range[$i]="$i "; done
     while [[ ! $(echo ${range[*]} | grep -w "$selection") ]]; do
-        echo -ne "\033[1;37m$(fun_trans " ► Select An Option"): " >&2
+        echo -ne "\033[1;37m$(fun_trans " ► Seleccione una Opcion"): " >&2
         read selection
         tput cuu1 >&2 && tput dl1 >&2
     done
@@ -1188,10 +1188,10 @@ monservi_fun() {
         done
     fi
     msg -bar
-    echo -e "             You can monitor from:\n       \033[1;32m http://$(meu_ip):81/monitor.html"
+    echo -e "             Puedes monitorear desde:\n       \033[1;32m http://$(meu_ip):81/monitor.html"
     msg -bar
-    [[ -z ${VERY3} ]] && monitorservi="\033[1;32m ENABLED " || monitorservi="\033[1;31m DISABLED "
-    echo -e "            $monitorservi  --  SUCCESSFULLY"
+    [[ -z ${VERY3} ]] && monitorservi="\033[1;32m HABILITADO " || monitorservi="\033[1;31m DESHABILITADO "
+    echo -e "            $monitorservi  --  COMPLETADO"
     msg -bar
 }
 monitor_auto() {
@@ -1245,33 +1245,33 @@ monhtop() {
     clear
     msg -bar
     msg -tit
-    echo -ne " \033[1;93m             HTOP PROCESS MONITOR\n"
+    echo -ne " \033[1;93m             HTOP MONITOR DE PROCESOS\n"
     msg -bar
-    msg -bra "   REMEMBER TO EXIT WITH: \033[1;96m CTRL + C o FIN + F10 "
+    msg -bra "   RECUERDA SALIR CON: \033[1;96m CTRL + C o FIN + F10 "
     [[ $(dpkg --get-selections | grep -w "htop" | head -1) ]] || apt-get install htop -y &>/dev/null
     msg -bar
-    read -t 10 -n 1 -rsp $'\033[1;39m Enter To Continue\n'
+    read -t 10 -n 1 -rsp $'\033[1;39m Enter para Continuar\n'
     clear
     sudo htop
     msg -bar
     echo -e "\e[97m \033[1;41m| #-#-►  SCRIPT VPS•AGN ◄-#-# | \033[1;49m\033[1;49m \033[1;31m[ \033[1;32m $vesaoSCT      "
-    echo -ne " \033[1;93m             HTOP PROCESS MONITOR\n"
+    echo -ne " \033[1;93m             HTOP MONITOR DE PROCESOS\n"
     msg -bar
-    echo -e "\e[97m                  END OF MONITOR"
+    echo -e "\e[97m                  FIN DE MONITOR"
     msg -bar
 }
 [[ $(ps x | grep v2ray | grep -v grep | awk '{print $1}') ]] && vra=$on || vra=$off
 msg -bar
 msg -bar3
 on="\e[1;32m[ON]" && off="\e[1;31m[OFF]"
-echo -e " \e[1;93m[\e[92m1\e[93m] $(msg -verm2 "➛ ") $(msg -azu "MANAGE ACCOUNTS | SSH/SSL/DROP")"
-echo -e " \e[1;93m[\e[92m2\e[93m] $(msg -verm2 "➛ ") $(msg -azu "MANAGE ACCOUNTS | SS/SSRR")"
-echo -e " \e[1;93m[\e[92m3\e[93m] $(msg -verm2 "➛ ") $(msg -azu "MANAGE ACCOUNTS | V2RAY --> $vra")"
-echo -e " \e[1;93m[\e[92m4\e[93m] $(msg -verm2 "➛ ") \e[1;31m\033[47mPROTOCOLS\e[0m  \e[93m||  \e[1;37m\e[41mTOOLS\e[0m"
-echo -e " \e[1;93m[\e[92m5\e[93m] $(msg -verm2 "➛ ") $(msg -azu "PROTOCOLS MONITOR --------> ${monitorservi}")"
-echo -e " \e[1;93m[\e[92m6\e[93m] $(msg -verm2 "➛ ") $(msg -azu "AUTO START SCRIPT ----------> ${AutoRun}")"
+echo -e " \e[1;93m[\e[92m1\e[93m] $(msg -verm2 "➛ ") $(msg -azu "ADMINISTRAR CUENTAS | SSH/SSL/DROP")"
+echo -e " \e[1;93m[\e[92m2\e[93m] $(msg -verm2 "➛ ") $(msg -azu "ADMINISTRAR CUENTAS | SS/SSRR")"
+echo -e " \e[1;93m[\e[92m3\e[93m] $(msg -verm2 "➛ ") $(msg -azu "ADMINISTRAR CUENTAS | V2RAY --> $vra")"
+echo -e " \e[1;93m[\e[92m4\e[93m] $(msg -verm2 "➛ ") \e[1;31m\033[47mPROTOCOLOS\e[0m  \e[93m||  \e[1;37m\e[41mTOOLS\e[0m"
+echo -e " \e[1;93m[\e[92m5\e[93m] $(msg -verm2 "➛ ") $(msg -azu "MONITOR DE PROTOCOLOS --------> ${monitorservi}")"
+echo -e " \e[1;93m[\e[92m6\e[93m] $(msg -verm2 "➛ ") $(msg -azu "AUTO INICIAR SCRIPT ----------> ${AutoRun}")"
 msg -bar
-echo -e " \e[1;93m[\e[92m7\e[93m] \e[97m$(msg -verm2 "➛ ") $(msg -verd "UPDATE") \e[1;93m [\e[92m8\e[93m]\e[97m$(msg -verm2 "➛ ")\033[1;31mUNINSTALL  \e[1;93m[\e[92m0\e[93m]$(msg -verm2 "➛ ") $(msg -bra "\e[97m\033[1;41mEXIT")"
+echo -e " \e[1;93m[\e[92m7\e[93m] \e[97m$(msg -verm2 "➛ ") $(msg -verd "ACTUALIZAR") \e[1;93m [\e[92m8\e[93m]\e[97m$(msg -verm2 "➛ ")\033[1;31mDESINSTALAR  \e[1;93m[\e[92m0\e[93m]$(msg -verm2 "➛ ") $(msg -bra "\e[97m\033[1;41mSALIR")"
 msg -bar
 selection=$(selection_fun 13)
 case ${selection} in
@@ -1285,5 +1285,5 @@ case ${selection} in
 8) remove_script ;;
 0) cd $HOME && exit 0 ;;
 esac
-msg -ne "Enter To Continue" && read enter
+msg -ne "Enter para Continuar" && read enter
 ${SCPdir}/menu
