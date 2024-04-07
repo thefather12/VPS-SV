@@ -33,7 +33,7 @@ USRdatacredi="/etc/BOT-C2/creditos"
 clear
 msg -bar
 msg -tit
-msg -ama "      ## MANAGEMENT BOT | VPS-AGN  ##  \033[1;31m"
+msg -ama "      ##BOT DE ADMINISTRACIÓN | VPS•SV  ##  \033[1;31m"
 msg -bar
 if [[ $1 = "id" || -z $(ps aux | grep -v grep | grep -w "ADMbot.sh" | grep dmS | awk '{print $2}') ]]; then
 	[[ -z $2 ]] && echo -ne " \033[1;96m #Enter the BOT Token \033[0;92m \nTOKEN:  \033[0;97m" && read TOKEN || TOKEN="$2"
@@ -301,7 +301,7 @@ ajuda_fun() {
 	demor="$(echo $demo3)"
 
 	local bot_retorno="*$LINE* \n"
-	bot_retorno+="*🔰 MANAGER VPS-AGN 2.0 🔰* \n"
+	bot_retorno+="*🔰 ADMINISTRADOR VPS•SV 2.0 🔰* \n"
 	bot_retorno+="$LINE \n"
 	bot_retorno+="_▪️ SSH REGISTERED:_ ( *$SSH4* ) \n"
 	bot_retorno+="_▪️ CONNECTED:_ ( *$ONLINES* ) \n"
@@ -1258,14 +1258,14 @@ backups() {
 	--parse_mode markdown
 	cp ${USRdatabase} $HOME/VPS-AGN-Backup-User
 	ShellBot.sendDocument --chat_id $var \
-	--document @$HOME/VPS-AGN-Backup-User
+	--document @$HOME/VPS•SV-Backup-User
 
 	#rm $HOME/VPS-AGN-Backup
 	return 0
 }
 
 restabackup() {
-	dirbackup="/root/VPS-AGN-Backup-User"
+	dirbackup="/root/VPS•SV-Backup-User"
 	local msj
 	VPSsec=$(date +%s)
 	while read line; do
