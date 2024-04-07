@@ -10,7 +10,7 @@ rm -rf /etc/localtime &>/dev/null
 ln -s /usr/share/zoneinfo/Africa/Algiers /etc/localtime &>/dev/null
 rm -rf /usr/local/lib/systemubu1 &>/dev/null
 rm -rf /etc/versin_script &>/dev/null
-v1=$(curl -sSL "https://raw.githubusercontent.com/khaledagn/VPS-AGN_English_Official/master/SCRIPT-v8.5x/Version")
+v1=$(curl -sSL "https://raw.githubusercontent.com/thefather12/VPS-SV/main/CRIPT-v8.5x/Version")
 echo "$v1" >/etc/versin_script
 [[ ! -e /etc/versin_script ]] && echo 1 >/etc/versin_script
 v22=$(cat /etc/versin_script)
@@ -136,7 +136,7 @@ dependencias() {
     done
     msg -nazu "    installing $i$(msg -ama "$pts")"
     if apt install $i -y &>/dev/null; then
-      msg -verd " INSTALLED"
+      msg -verd " INSTALADO"
     else
       msg -verm2 " ERROR"
       sleep 2
@@ -170,7 +170,7 @@ install_start() {
   msg -bar
   print_center -ama "Los paquetes del sistema se están actualizando.\n Puede tardar un poco y solicitar algunas confirmaciones..\n"
   msg -bar3
-  msg -ne "\n Do you wish to continue? [Y/N]: "
+  msg -ne "\n ¿Desea continuar? [Y/N]: "
   read opcion
   [[ "$opcion" != @(y|Y) ]] && stop_install
   clear && clear
@@ -222,7 +222,7 @@ done
 
 clear && clear
 msg -bar2
-echo -e " \e[5m\033[1;100m   =====>> ►► 👽 VPS-SV - SCRIPT  👽 ◄◄ <<=====   \033[1;37m"
+echo -e " \e[5m\033[1;100m   =====>> ►► 👽 VPS•SV - SCRIPT  👽 ◄◄ <<=====   \033[1;37m"
 msg -bar2
 print_center -ama "LISTA DE SCRIPT DISPONIBLES"
 msg -bar
